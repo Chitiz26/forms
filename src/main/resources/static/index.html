@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main class="page-shell">
+    <header class="hero">
+        <div>
+            <p class="eyebrow">Spring Boot CRUD</p>
+            <h1>Forms</h1>
+            <p class="subtitle">Create, view, update, and delete records from your database.</p>
+        </div>
+        <button id="refreshButton" class="secondary-button" type="button">Refresh</button>
+    </header>
+
+    <section class="panel form-panel">
+        <div class="panel-heading">
+            <div>
+                <p class="section-label" id="formModeLabel">New record</p>
+                <h2 id="formTitle">Add a person</h2>
+            </div>
+            <button id="cancelEditButton" class="text-button hidden" type="button">Cancel edit</button>
+        </div>
+
+        <form id="infoForm">
+            <input id="recordId" type="hidden" />
+
+            <div class="field-grid">
+                <label>
+                    <span>Name</span>
+                    <input id="name" type="text" placeholder="Enter full name" required />
+                </label>
+
+                <label>
+                    <span>Email</span>
+                    <input id="email" type="email" placeholder="Enter email address" required />
+                </label>
+
+                <label>
+                    <span>Age</span>
+                    <input id="age" type="number" min="1" max="120" placeholder="Enter age" required />
+                </label>
+            </div>
+
+            <button id="submitButton" class="primary-button" type="submit">Save record</button>
+        </form>
+
+        <p id="message" class="message" aria-live="polite"></p>
+    </section>
+
+    <section class="panel records-panel">
+        <div class="panel-heading">
+            <div>
+                <p class="section-label">Database</p>
+                <h2>All entries</h2>
+            </div>
+            <span id="recordCount" class="record-count">0 records</span>
+        </div>
+
+        <div id="loadingState" class="state-message">Loading records...</div>
+        <div id="emptyState" class="state-message hidden">No records found.</div>
+
+        <div class="table-wrapper">
+            <table id="recordsTable" class="hidden">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="recordsBody"></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
