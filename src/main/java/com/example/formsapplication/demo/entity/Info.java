@@ -1,12 +1,16 @@
 package com.example.formsapplication.demo.entity;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Generated;
-import lombok.NonNull;
 
 @Entity
 @Data
-@Table(name = "info")
+@Table(
+        name = "info",
+        uniqueConstraints = @UniqueConstraint(
+                name = "uq_email",
+                columnNames = {"email"}
+        )
+)
 public class Info
 {
 
@@ -16,5 +20,7 @@ public class Info
     private String name;
     private String email;
     private int age;
+    @Enumerated(EnumType.STRING)
+    private Continent continent;
 
 }
